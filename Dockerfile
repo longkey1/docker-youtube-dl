@@ -1,4 +1,4 @@
-FROM debian:stable
+FROM debian:latest
 
 # Fix frontend not set error
 ARG DEBIAN_FRONTEND=noninteractive
