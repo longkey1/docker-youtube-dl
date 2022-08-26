@@ -20,7 +20,6 @@ ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
 
 # Install depended packages for youtube-dl
 RUN apt-get -y install curl python
-RUN python --version
 
 # Install youtube-dl
 # https://github.com/ytdl-org/youtube-dl#installation
