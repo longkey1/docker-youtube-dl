@@ -19,7 +19,10 @@ RUN chmod +x /usr/local/bin/entrypoint.sh
 ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
 
 # Install depended packages for youtube-dl
-RUN apt-get -y install curl python3
+RUN apt-get -y install curl python
+RUN which python
+RUN which python3
+RUN which python2
 
 # Install youtube-dl
 # https://github.com/ytdl-org/youtube-dl#installation
