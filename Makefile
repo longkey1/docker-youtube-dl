@@ -1,15 +1,13 @@
 .DEFAULT_GOAL := help
 
-repo := debian
-tags := stable
+tag := latest
 
 define build_git_branch
 	git checkout master
 	git fetch
 	git branch -D $(1) || true
 	git checkout -b $(1)
-	sed -i -e "s@FROM $(repo):latest@FROM $(repo):$(1)@" Dockerfile
-	git commit -am "Change base image to $(repo):$(1)" --allow-empty
+	git commit -am "Create branch as $(1)" --allow-empty
 	git push origin $(1) --force-with-lease
 	git checkout master
 
@@ -17,7 +15,7 @@ endef
 
 .PHONY: build
 build: ## build all tags
-	$(foreach tag,$(tags),$(call build_git_branch,$(tag)))
+	$(call build_git_branch,$(tag))
 
 
 
