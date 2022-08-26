@@ -20,8 +20,8 @@ ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
 
 # Install youtube-dl
 # https://github.com/ytdl-org/youtube-dl#installation
-sudo curl -L https://yt-dl.org/downloads/latest/youtube-dl -o /usr/local/bin/youtube-dl
-sudo chmod a+rx /usr/local/bin/youtube-dl
+RUN curl -L https://yt-dl.org/downloads/latest/youtube-dl -o /usr/local/bin/youtube-dl
+RUN chmod a+rx /usr/local/bin/youtube-dl
 
 # Confirm ansible version
 RUN youtube-dl --version
