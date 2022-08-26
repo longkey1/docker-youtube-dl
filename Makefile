@@ -7,14 +7,14 @@ define build_git_branch
 	git fetch
 	git branch -D $(1) || true
 	git checkout -b $(1)
-	git commit -am "Create branch as $(1)" --allow-empty
+	git commit -am "Re-create branch as $(1)" --allow-empty
 	git push origin $(1) --force-with-lease
 	git checkout master
 
 endef
 
 .PHONY: build
-build: ## build all tags
+build: ## build tag
 	$(call build_git_branch,$(tag))
 
 
